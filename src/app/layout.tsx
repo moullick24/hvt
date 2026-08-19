@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3, Caveat } from "next/font/google";
+import { Caveat, Prata, Rethink_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Prata({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: "400",
 });
 
-const body = Source_Sans_3({
+const body = Rethink_Sans({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const hand = Caveat({

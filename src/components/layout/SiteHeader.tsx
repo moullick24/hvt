@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { contactCta, navLinks, site } from "@/content/site";
 
@@ -11,89 +12,124 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  return (
-    <header className="sticky top-0 z-50 border-b border-line bg-[var(--header-bg)] backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3 md:px-8 md:py-3.5">
-        <Link
-          href="/"
-          className="relative flex shrink-0 items-center rounded-md bg-black px-2.5 py-1.5"
-          onClick={() => setOpen(false)}
-          aria-label={`${site.name} home`}
-        >
-          <Image
-            src="/brand/healthvoitho-logo.png"
-            alt={site.name}
-            width={220}
-            height={56}
-            priority
-            className="h-9 w-auto md:h-11"
-          />
-        </Link>
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md">
+      <div className="mx-auto grid h-[5rem] max-w-[1500px] grid-cols-[1fr_auto] items-center gap-5 px-5 sm:h-[5.5rem] sm:px-8 lg:grid-cols-[minmax(210px,1fr)_auto_minmax(210px,1fr)] lg:px-12 xl:px-16">
+        <div className="flex min-w-0 items-center">
+        <button
+          type="button"
+          className="mr-3 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-[#1d315f] transition hover:bg-[#eef4f3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent lg:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close navigation" : "Open navigation"}
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+
+          <Link
+            href="/"
+            className="relative flex shrink-0 items-center overflow-hidden"
+            onClick={() => setOpen(false)}
+            aria-label={`${site.name} home`}
+          >
+            <Image
+              src="/brand/healthvoitho-logo.png"
+              alt={site.name}
+              width={220}
+              height={88}
+              preload
+              className="h-[3.7rem] w-auto object-contain sm:h-[4.4rem]"
+            />
+          </Link>
+        </div>
+
+        <nav className="hidden items-center justify-center gap-7 lg:flex xl:gap-9" aria-label="Primary">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[0.9375rem] tracking-wide transition-colors ${
-                  active
-                    ? "font-medium text-accent"
-                    : "text-muted hover:text-ink"
+                className={`header-nav-link relative whitespace-nowrap py-2 text-[0.82rem] font-medium tracking-[0.01em] transition-colors ${
+                  active ? "text-[#2f7f80]" : "text-[#263b40] hover:text-[#2f7f80]"
                 }`}
               >
                 {link.label}
               </Link>
             );
           })}
-          <Link
-            href={contactCta.href}
-            className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition hover:bg-accent-deep"
-          >
-            {contactCta.label}
-          </Link>
         </nav>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-full border border-line px-4 py-2 text-sm text-ink lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
+        <Link
+          href={contactCta.href}
+          className="header-outline-action group inline-flex shrink-0 items-center justify-self-end gap-2 rounded-full border-[1.5px] border-transparent px-4 py-2.5 text-xs font-semibold sm:px-5 sm:text-sm"
+          onClick={() => setOpen(false)}
         >
-          {open ? "Close" : "Menu"}
-        </button>
+          {contactCta.label}
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+        </Link>
       </div>
 
       <AnimatePresence>
         {open ? (
           <motion.nav
             id="mobile-nav"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-line lg:hidden"
-            aria-label="Mobile"
+            initial={{ opacity: 0, y: -14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -14 }}
+            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-x-0 bottom-0 top-[5rem] overflow-y-auto border-t border-[#dfe6e4] bg-[#f4efe7] sm:top-[5.5rem] lg:hidden"
+            aria-label="Primary"
           >
-            <div className="flex flex-col gap-1 px-5 py-4">
-              {navLinks.map((link) => (
+            <div className="mx-auto grid min-h-full max-w-[1500px] content-center gap-10 px-7 py-12 sm:px-12 lg:grid-cols-[1fr_0.65fr] lg:px-20">
+              <div className="flex flex-col">
+                {navLinks.map((link, index) => {
+                  const active = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`group flex items-baseline justify-between gap-5 border-b border-[#cfd9d6] py-4 font-display text-[clamp(2rem,5vw,4.5rem)] leading-none tracking-[-0.035em] transition-colors hover:text-accent ${
+                        active ? "text-accent" : "text-[#20383b]"
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      <span>{link.label}</span>
+                      <span className="font-sans text-xs tracking-[0.16em] text-muted">
+                        0{index + 1}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+              <div className="self-end lg:pb-4">
+                <p className="max-w-md text-lg leading-relaxed text-muted">
+                  Intelligent systems for earlier, more accessible cancer care.
+                </p>
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className="py-2 text-base text-ink"
+                  href={contactCta.href}
+                  className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-accent"
                   onClick={() => setOpen(false)}
                 >
-                  {link.label}
+                  Start a conversation
+                  <ArrowUpRight className="h-4 w-4" aria-hidden />
                 </Link>
-              ))}
-              <Link
-                href={contactCta.href}
-                className="mt-2 rounded-full bg-accent px-4 py-3 text-center text-sm font-medium text-white"
-                onClick={() => setOpen(false)}
-              >
-                {contactCta.label}
-              </Link>
+              </div>
             </div>
           </motion.nav>
         ) : null}
