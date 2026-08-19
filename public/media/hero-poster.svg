@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="HealthVoitho hero placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a2c24"/>
+      <stop offset="45%" stop-color="#6b4a3a"/>
+      <stop offset="100%" stop-color="#2a221c"/>
+    </linearGradient>
+    <radialGradient id="r" cx="70%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#8b3a2f" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#8b3a2f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g)"/>
+  <rect width="1600" height="900" fill="url(#r)"/>
+</svg>
