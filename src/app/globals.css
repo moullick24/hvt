@@ -51,7 +51,7 @@ body {
 
 .font-display {
   font-family: var(--font-display), ui-serif, Georgia, serif;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .atmosphere {
@@ -61,15 +61,130 @@ body {
     linear-gradient(180deg, #e8eef0 0%, var(--bg) 50%, #e6edee 100%);
 }
 
-.hero-scrim {
+.hero-gradient-text {
+  background: linear-gradient(100deg, #2f7f99 0%, #468397 42%, #9aae72 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-action {
+  background: linear-gradient(100deg, #397d93 0%, #89a66f 100%);
+}
+
+.header-nav-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0.15rem;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.header-nav-link:hover::after,
+.header-nav-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header-outline-action {
+  color: #315963;
   background:
-    linear-gradient(
-      105deg,
-      rgba(26, 36, 38, 0.72) 0%,
-      rgba(26, 36, 38, 0.45) 42%,
-      rgba(26, 36, 38, 0.25) 68%,
-      rgba(26, 36, 38, 0.35) 100%
-    );
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(100deg, #397d93 0%, #a5b97b 100%) border-box;
+  transition:
+    color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.header-outline-action:hover {
+  color: #ffffff;
+  background:
+    linear-gradient(100deg, #397d93 0%, #89a66f 100%) padding-box,
+    linear-gradient(100deg, #397d93 0%, #a5b97b 100%) border-box;
+  box-shadow: 0 8px 24px rgba(70, 131, 151, 0.18);
+  transform: translateY(-1px);
+}
+
+.hero-outline-action {
+  color: #274d57;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(100deg, #397d93 0%, #b8c986 100%) border-box;
+  transition:
+    color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
+}
+
+.hero-outline-action:hover {
+  color: #ffffff;
+  background:
+    linear-gradient(100deg, #397d93 0%, #88a675 100%) padding-box,
+    linear-gradient(100deg, #397d93 0%, #b8c986 100%) border-box;
+  box-shadow: 0 10px 28px rgba(70, 131, 151, 0.2);
+  transform: translateY(-2px);
+}
+
+.hero-photo-frame {
+  isolation: isolate;
+  overflow: hidden;
+  background: #dfe9e6;
+  box-shadow: 0 24px 60px rgba(48, 82, 88, 0.14);
+}
+
+.hero-photo-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(145deg, rgba(70, 131, 151, 0.16), rgba(184, 201, 134, 0.1));
+  mix-blend-mode: soft-light;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.care-card-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(195, 207, 149, 0.96), transparent 48%),
+    linear-gradient(135deg, #5fa5b7 0%, #468397 42%, #9eb77b 100%);
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.care-card:hover .care-card-media::before,
+.care-card:focus-visible .care-card-media::before {
+  opacity: 1;
+}
+
+.care-card-image {
+  filter: saturate(0.94) contrast(1.01);
+}
+
+.wp-block-button__link::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 96px;
+  padding: 1.6px;
+  background: linear-gradient(90deg, rgb(117, 77, 193) 0%, rgb(253, 65, 28) 170.72%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .founder-paper {

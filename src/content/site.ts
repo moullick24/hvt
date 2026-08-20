@@ -9,7 +9,7 @@ export const site = {
 } as const;
 
 export const navLinks = [
-  { href: "/science", label: "The Science" },
+  { href: "/science", label: "Science" },
   { href: "/approach", label: "Approach" },
   { href: "/partnerships", label: "Partnerships" },
   { href: "/people", label: "People" },
