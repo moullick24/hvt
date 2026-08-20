@@ -19,16 +19,16 @@ export function ProgressCards() {
           {progress.cards.map((card, index) => (
             <article key={card.title} className="h-full">
               <Link href={card.href} className="care-card group grid h-full grid-rows-[auto_auto_1fr_auto] outline-none">
-                <div className="care-card-media relative aspect-[4/4.7] overflow-hidden bg-[#dfe3e1]">
+                <div className="care-card-media relative aspect-[4/3] overflow-hidden bg-[#dfe3e1]">
                   <Image
                     src={card.image}
                     alt={card.imageAlt}
                     fill
                     sizes="(max-width: 767px) 100vw, 33vw"
-                    className={`care-card-image relative z-10 object-contain object-bottom transition-transform duration-500 ease-out ${
+                    className={`care-card-image relative z-10 transition-transform duration-500 ease-out ${
                       index === 0
-                        ? "group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
-                        : "scale-[0.94] group-hover:scale-[0.97] group-focus-visible:scale-[0.97]"
+                        ? "object-cover object-[50%_8%] group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
+                        : "scale-[0.94] object-contain object-bottom group-hover:scale-[0.97] group-focus-visible:scale-[0.97]"
                     }`}
                   />
                 </div>

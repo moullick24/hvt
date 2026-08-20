@@ -7,8 +7,8 @@ export function Hero() {
   const { hero } = home;
 
   return (
-    <section className="overflow-hidden bg-white">
-      <div className="mx-auto grid min-h-[calc(100svh-5.5rem)] max-w-[1536px] items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,1.12fr)_minmax(500px,0.88fr)] lg:gap-3 lg:px-12 lg:py-10 xl:px-16">
+    <section className="relative bg-transparent">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100svh-5.5rem)] max-w-[1536px] items-center gap-10 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,1.12fr)_minmax(500px,0.88fr)] lg:gap-3 lg:px-12 lg:py-10 xl:px-16">
         <div className="relative z-10 max-w-[820px]">
             <h1 className="font-display text-[clamp(2.75rem,4.25vw,4.6rem)] font-normal leading-[0.98] tracking-[-0.035em] text-[#1d315f]">
               <span className="block lg:whitespace-nowrap">
