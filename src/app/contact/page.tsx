@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { ContourLines } from "@/components/home/ContourLines";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { contact } from "@/content/contact";
 
@@ -10,23 +11,22 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="atmosphere">
-      <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] md:px-8 md:py-24">
+    <main className="page-header-underlay contact-page relative isolate overflow-hidden bg-white">
+      <ContourLines />
+
+      <section className="relative z-10 mx-auto grid max-w-[1536px] gap-14 px-5 pb-24 pt-20 sm:px-8 md:pb-32 md:pt-28 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:gap-24 lg:px-12 lg:pt-36 xl:px-16">
         <FadeIn>
-          <p className="text-xs uppercase tracking-[0.2em] text-accent">
-            {contact.eyebrow}
-          </p>
-          <h1 className="mt-4 font-display text-4xl leading-tight text-ink md:text-5xl">
+          <h1 className="max-w-3xl font-display text-4xl leading-tight text-[#1d315f] md:text-6xl">
             {contact.title}
           </h1>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
+          <p className="mt-7 max-w-xl text-lg leading-[1.7] text-muted md:mt-9 md:text-xl">
             {contact.lead}
           </p>
         </FadeIn>
-        <FadeIn delay={0.08}>
+        <FadeIn className="border-t border-[#b9cdcd]/80 pt-8 md:pt-10" delay={0.08}>
           <ContactForm />
         </FadeIn>
       </section>
-    </div>
+    </main>
   );
 }

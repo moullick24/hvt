@@ -2,58 +2,59 @@ export const partnerships = {
   meta: {
     title: "Partnerships",
     description:
-      "Collaborations that place HealthVoitho intelligence inside real cancer pathways — Saltlick and Niq.",
+      "HealthVoitho partnerships with scientists, research labs, and institutions working to advance early cancer detection and therapy development.",
   },
-  eyebrow: "Partnerships",
-  title: "Hard problems in cancer care are not solved alone",
-  lead: "HealthVoitho’s science only matters when it sits inside a real pathway — detection, care, support. We work with organisations that already live in that pathway. Two collaborations are ready to be spoken about in public. Each has its own home; this page is the relationship, not a product tour.",
+  titlePrefix: "Ambitious problems demand",
+  titleAccent: "collaborators",
+  titleSuffix: "who’ve earned the room",
+  lead: "Our mission is to close the gap between when cancer can be caught and when it’s actually caught. That’s a bigger problem than any one lab, dataset, or model can solve alone — which is why every serious step we’ve taken has been taken alongside the people closest to the science.",
+  discovery: {
+    title: "Driving discovery together",
+    paragraphs: [
+      "Our culture of collaboration extends beyond the walls of our offices and underpins every one of our relationships — whether you’re an independent scientist, a research lab, an academic or clinical institution, or another pioneering partner working on the same problem from a different angle.",
+      "Together we are turning causal understanding of cancer biology into evidence that holds up outside a lab. With AI, longitudinal data and deep oncology domain expertise, we are working toward a new standard for early detection and therapy development — one built to reach the people who need it, not just the people near a tertiary centre.",
+      "And not a moment too soon.",
+    ],
+  },
   partners: [
     {
-      id: "saltlick",
-      label: "Partner",
-      name: "Saltlick",
-      detailsTitle: "Details of our collaboration",
-      paragraphs: [
-        "Saltlick is a cancer-ecosystem effort: a way to take people from identification through care, including where a tertiary campus is far away. HealthVoitho is not “the Saltlick brand.” We are the intelligence in the pathway — portable diagnostics, data that can follow the person, AI where it earns a clinical decision.",
-        "The collaboration is bidirectional. The field tells the lab what actually fails. The lab returns systems that can travel. For the working programme, go to Saltlick’s own site. This page will not duplicate it.",
-      ],
-      weBring:
-        "AI, data discipline, and device science that can leave the hospital.",
-      theyBring: "Oncology operations, reach, and the last mile of care.",
-      href: null as string | null,
-      linkLabel: "Visit Saltlick",
-    },
-    {
-      id: "niq",
-      label: "Partner",
-      name: "Niq",
-      detailsTitle: "Details of our collaboration",
-      paragraphs: [
-        "Niq is a collaboration in progress in the same cancer ecosystem — a defined problem in the pathway, a team we are aligned with, and a site of its own when the work is ready to be used. We will not describe a product here that we are not yet willing to stand behind.",
-      ],
-      weBring:
-        "The same scientific stack — AI, data, devices — applied to Niq’s problem.",
-      theyBring: "Domain focus and pathway ownership for a defined cancer-ecosystem problem.",
-      href: null as string | null,
-      linkLabel: "Visit Niq",
+      id: "meridian",
+      name: "Meridian Cancer Research Institute",
+      logo: "/media/partnerships/meridian-placeholder-mark.svg",
+      image: "/media/partnerships/cancer-research-institute-v1.png",
+      description:
+        "Our collaboration with Meridian Cancer Research Institute began in 2025, applying causal modelling to a shared longitudinal dataset spanning over a decade of treatment outcomes across three cancer types. The work has since expanded to include joint validation of two biomarker candidates identified through the collaboration.",
+      quote:
+        "Working with a team that treats the causal question as seriously as we do has changed how we approach target selection. We’re finding signal we would have missed working alone.",
+      quoteAttribution:
+        "Dr. Amara Solanki — Director of Translational Research, Meridian Cancer Research Institute",
     },
   ],
   principles: [
     {
-      title: "Synergy",
-      body: "They know the pathway. We know the intelligence. Neither is a vendor to the other.",
+      id: "rigor",
+      title: "Rigor",
+      body: "A target or biomarker doesn’t earn a partner’s trust because it looks promising — it earns it because it holds up against causal, real-world evidence. We validate before we hand anything downstream, not after.",
     },
     {
-      title: "Collaboration",
-      body: "Continuous, scientific, in the field as much as on paper.",
+      id: "reciprocity",
+      title: "Reciprocity",
+      body: "A partner’s domain knowledge and data go into every model we build together; our causal modelling and closed-loop validation come back out. It’s an exchange, not a service performed on a partner’s behalf.",
     },
     {
-      title: "Transfer",
-      body: "The point is that the technology can leave us and still be itself.",
+      id: "velocity",
+      title: "Velocity",
+      body: "Cancer caught early is a different disease than cancer caught late. Every partnership is judged against that clock, not against a publication or funding timeline.",
     },
     {
-      title: "Access",
-      body: "If it cannot move beyond a few cities, it is not a partnership we will celebrate on this page.",
+      id: "reach",
+      title: "Reach",
+      body: "Validated in a partnership isn’t the same as reaching a patient outside a tertiary centre. Our partnerships exist to close that specific gap — one pathway at a time.",
     },
   ],
+  closing: {
+    title:
+      "If you’re a scientist, a lab, or an institution working on the same problem — we’d like to hear from you.",
+    cta: { href: "/contact", label: "Partner with us" },
+  },
 } as const;

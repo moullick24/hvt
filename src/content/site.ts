@@ -10,10 +10,8 @@ export const site = {
 
 export const navLinks = [
   { href: "/science", label: "Science" },
-  { href: "/approach", label: "Approach" },
   { href: "/partnerships", label: "Partnerships" },
   { href: "/people", label: "People" },
-  { href: "/group", label: "Group" },
 ] as const;
 
 export const contactCta = {
