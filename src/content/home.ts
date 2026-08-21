@@ -47,4 +47,37 @@ export const home = {
       },
     ],
   },
+  scienceOverview: {
+    titleAccent: "AI",
+    title: " + Domain Expertise",
+    mechanism:
+      "We combine longitudinal oncology data, AI-driven causal modelling and deep domain expertise into solutions our partners use to validate targets, biomarkers and diagnostic pathways before committing capital downstream.",
+    pillars: [
+      {
+        title: "AI-Driven Causal Modelling",
+        description:
+          "We apply AI/ML and causal inference to real-world oncology data to identify disease targets and patient subtypes, and validate them before a partner commits lab or clinical resources.",
+      },
+      {
+        title: "Longitudinal Oncology Data",
+        description:
+          "Structured data spanning the full disease journey — not a single snapshot — so every model is grounded in how cancer actually progresses in a population, not just in published literature.",
+      },
+      {
+        title: "Deep Domain Knowledge",
+        description:
+          "Oncology-specific clinical and scientific expertise embedded at every step, so a partner's R&D or clinical team gets an interpretable output, not a black-box score.",
+      },
+    ],
+    cta: { href: "/science", label: "Explore the science behind it" },
+  },
+  origin: {
+    title: "What’s in a name?",
+    firstWord: "Health",
+    secondWord: "Voitho",
+    definition:
+      'HealthVoitho blends the word “Health” with the Greek word “voitho,” which means “to assist.”',
+    purpose:
+      "We enable scientists, clinicians and institutions to harness the collective wisdom and the power of technology to uncover knowledge for the future of cancer care. We do so to help people everywhere live healthier and happier.",
+  },
 } as const;

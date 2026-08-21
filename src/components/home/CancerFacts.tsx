@@ -30,37 +30,24 @@ function useCounter(target: number, started: boolean, reduceMotion: boolean) {
   useEffect(() => {
     if (!started || reduceMotion || target <= 0) return;
 
-    const steps = Math.min(target, 18);
-    const duration = target <= 5 ? 1000 : 2200;
-    let step = 0;
+    let frame = 0;
+    let startedAt = 0;
+    const duration = 1450;
 
-    const timer = window.setInterval(() => {
-      step += 1;
-      const progress = step / steps;
+    const tick = (timestamp: number) => {
+      if (!startedAt) startedAt = timestamp;
+      const progress = Math.min((timestamp - startedAt) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setValue(Math.round(target * eased));
 
-      if (step >= steps) window.clearInterval(timer);
-    }, duration / steps);
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
 
-    return () => window.clearInterval(timer);
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
   }, [reduceMotion, started, target]);
 
   return reduceMotion ? target : value;
-}
-
-function FlipDigits({ value }: { value: number }) {
-  return (
-    <span className="inline-flex" aria-hidden>
-      {String(value)
-        .split("")
-        .map((digit, index) => (
-          <span className="flip-digit" key={`${index}-${digit}-${value}`}>
-            <span>{digit}</span>
-          </span>
-        ))}
-    </span>
-  );
 }
 
 function FactNumber({
@@ -86,12 +73,10 @@ function FactNumber({
       className="font-sans text-[clamp(4.75rem,8vw,8.5rem)] font-semibold leading-[0.82] tracking-[-0.08em] text-[#203b42] tabular-nums"
       aria-label={label}
     >
-      <span className="inline-flex items-baseline" aria-hidden>
-        <FlipDigits value={primary} />
+      <span aria-hidden>
+        {primary}
         {secondaryValue ? (
-          <span className="ml-[0.12em] inline-flex items-baseline gap-[0.12em] text-[0.5em] tracking-[-0.04em]">
-            in <FlipDigits value={secondary} />
-          </span>
+          <span className="ml-[0.12em] text-[0.5em] tracking-[-0.04em]">in {secondary}</span>
         ) : (
           <span className="text-[0.58em] tracking-[-0.04em]">{suffix}</span>
         )}
@@ -128,10 +113,6 @@ export function CancerFacts() {
   return (
     <section className="cancer-facts relative bg-transparent text-[#1a2426]">
       <div className="relative z-10 mx-auto max-w-[1536px] px-5 sm:px-8 lg:px-12 xl:px-16">
-        <div className="section-divider" aria-hidden>
-          <span />
-        </div>
-
         <div className="py-20 md:py-28">
           <h2 className="max-w-[1040px] font-display text-[clamp(2.4rem,3.4vw,3.8rem)] leading-[1.04] tracking-[-0.03em] text-[#1d315f]">
             Cancer is becoming a family fact
@@ -165,10 +146,6 @@ export function CancerFacts() {
               </article>
             ))}
           </div>
-        </div>
-
-        <div className="section-divider" aria-hidden>
-          <span />
         </div>
       </div>
     </section>

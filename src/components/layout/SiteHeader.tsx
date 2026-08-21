@@ -11,6 +11,22 @@ import { contactCta, navLinks, site } from "@/content/site";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [atPageTop, setAtPageTop] = useState(true);
+  const solidHeader = !atPageTop || open;
+
+  useEffect(() => {
+    const updateHeader = () => setAtPageTop(window.scrollY <= 0);
+    const initialFrame = requestAnimationFrame(() => {
+      setOpen(false);
+      updateHeader();
+    });
+    window.addEventListener("scroll", updateHeader, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(initialFrame);
+      window.removeEventListener("scroll", updateHeader);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -27,7 +43,11 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md">
+    <header
+      className={`sticky top-0 z-50 transition-[background-color,backdrop-filter] duration-200 ${
+        solidHeader ? "bg-white/95 backdrop-blur-md" : "bg-transparent backdrop-blur-none"
+      }`}
+    >
       <div className="mx-auto grid h-[5rem] max-w-[1500px] grid-cols-[1fr_auto] items-center gap-5 px-5 sm:h-[5.5rem] sm:px-8 lg:grid-cols-[minmax(210px,1fr)_auto_minmax(210px,1fr)] lg:px-12 xl:px-16">
         <div className="flex min-w-0 items-center">
         <button
@@ -42,7 +62,7 @@ export function SiteHeader() {
         </button>
 
           <Link
-            href="/"
+            href="/#top"
             className="relative flex shrink-0 items-center overflow-hidden"
             onClick={() => setOpen(false)}
             aria-label={`${site.name} home`}
@@ -50,10 +70,10 @@ export function SiteHeader() {
             <Image
               src="/brand/healthvoitho-logo.png"
               alt={site.name}
-              width={220}
-              height={88}
+              width={260}
+              height={104}
               preload
-              className="h-[3.7rem] w-auto object-contain sm:h-[4.4rem]"
+              className="h-[3.95rem] w-auto object-contain sm:h-[5rem]"
             />
           </Link>
         </div>
@@ -65,7 +85,7 @@ export function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`header-nav-link relative whitespace-nowrap py-2 text-[0.82rem] font-medium tracking-[0.01em] transition-colors ${
+                className={`header-nav-link relative whitespace-nowrap py-2 text-[0.95rem] font-medium tracking-[0.01em] transition-colors ${
                   active ? "text-[#2f7f80]" : "text-[#263b40] hover:text-[#2f7f80]"
                 }`}
               >
@@ -77,7 +97,7 @@ export function SiteHeader() {
 
         <Link
           href={contactCta.href}
-          className="header-outline-action group inline-flex shrink-0 items-center justify-self-end gap-2 rounded-full border-[1.5px] border-transparent px-4 py-2.5 text-xs font-semibold sm:px-5 sm:text-sm"
+          className="header-outline-action group inline-flex shrink-0 items-center justify-self-end gap-2 rounded-full border-[1.5px] border-transparent px-4 py-2.5 text-sm font-semibold sm:px-5 sm:text-[0.95rem]"
           onClick={() => setOpen(false)}
         >
           {contactCta.label}
@@ -93,7 +113,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -14 }}
             transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 bottom-0 top-[5rem] overflow-y-auto border-t border-[#dfe6e4] bg-[#f4efe7] sm:top-[5.5rem] lg:hidden"
+            className="absolute inset-x-0 top-full h-[calc(100dvh-5rem)] overflow-y-auto border-t border-[#dfe6e4] bg-[#f4efe7] sm:h-[calc(100dvh-5.5rem)] lg:hidden"
             aria-label="Primary"
           >
             <div className="mx-auto grid min-h-full max-w-[1500px] content-center gap-10 px-7 py-12 sm:px-12 lg:grid-cols-[1fr_0.65fr] lg:px-20">

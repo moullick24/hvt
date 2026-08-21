@@ -4,10 +4,9 @@ export const science = {
     description:
       "AI in healthcare, data in healthcare, device R&D, and early detection — fields of inquiry for the cancer ecosystem.",
   },
-  eyebrow: "The science",
-  title: "Intelligence built for the cancer ecosystem",
+  titleAccent: "Intelligence",
+  titleRest: "built for the cancer ecosystem",
   lead: "We do not start from a catalogue. We start from four bodies of work that have to function together: how machines read clinical signal, how data becomes the next decision, how devices can leave the hospital, and how cancer is found while there is still time.",
-  note: "These are named plainly — AI in healthcare, data in healthcare, device R&D, early detection. They are fields of inquiry, not SKUs.",
   sections: [
     {
       id: "ai",

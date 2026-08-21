@@ -1,386 +1,209 @@
-# HealthVoitho — Website content deck (v2)
+# HealthVoitho — Website content and implementation reference (v3)
 
-Audience: partners across the cancer ecosystem (scientists, oncologists, medtech, hospitals, labs, collaborators) — **not patients, not a shop, not a screening service**.
+This document reflects the current website implementation. It is the source of truth for page structure, approved copy direction, shared visual behavior, and items that must be resolved before publication.
 
-Locked hero (do not change):
+## Positioning
 
-> Intelligent Healthcare in Cancer Ecosystem. Accessible Everywhere.
+HealthVoitho is the technology entity of the Esperer Group. It develops intelligent systems intended to make cancer care earlier, closer, and more usable through AI, longitudinal oncology data, domain expertise, and portable diagnostic pathways.
 
-This is a **small site**, not a single scroll. Structure follows [Isomorphic Labs](https://www.isomorphiclabs.com/) (mission home, then dedicated pages). Look and feel follows [Lilly](https://www.lilly.com/) (warm, human, large type, film).
+The website is written for scientists, clinicians, research labs, hospitals, medtech teams, institutions, and prospective collaborators. It is not a product catalogue, consumer screening service, CRO brochure, or online shop.
 
----
+Copy should remain calm, specific, and research-led. Describe the scientific problem and the evidence required to act on it; do not overstate an AI output, invent a partnership, or invite patients to use an unapproved service.
 
-## What the company is (internal brief)
+## Shared design system and behavior
 
-HealthVoitho is the **technology entity of the Esperer Group**. It exists to invent, prove, and transfer intelligent systems that make cancer care earlier, closer, and more usable — in India and globally.
-
-It is **not**: a product catalogue, contract manufacturer, CRO / services firm, screening-for-hire company, or B2C manufacturer.
-
-It **is**: a research-oriented organisation that develops, builds to a point, **partners or acquires-and-operates**, and transfers technology — only in the **cancer ecosystem** (and related NCDs where they inform cancer risk and care).
-
-**Mental model for copy:** talk about the *science* (AI, data, devices, early detection), not the *SKU* of a device.
-
----
-
-## What to retire from the current site
-
-- COVID-era solutions and stories
-- Generic lines such as “empowering healthcare through innovation and technology”
-- Product lists and “book a screening” CTAs
-- Startup-scaling / consulting framing
-- Status chips, product menus, a dedicated “platforms” block on the home page
-
----
+- Display type: Prata.
+- Body and interface type: Rethink Sans.
+- Page background: white, with animated contour lines shared across the landing, Science, Partnerships, People, and Contact pages.
+- Heading colour: deep blue (`#1d315f`) with restrained teal-to-moss gradient accents.
+- Header: transparent at the top of every page and white with blur immediately after scrolling. The enlarged HealthVoitho logo links to the top of the landing page.
+- Navigation: Science · Partnerships · People, with Contact as the utility button.
+- Group and Approach pages and navigation entries have been removed.
+- A fixed back-to-top control appears at the bottom right after the visitor scrolls down.
+- Motion respects reduced-motion preferences.
+- Eyebrow headings are not used on the primary interior-page heroes.
 
 ## Site map
 
-**Nav (left to right):** The Science · Approach · Partnerships · People · Group  
-**Utility:** Contact (button, not a fifth essay in the bar)
+| Page | URL | Purpose |
+|---|---|---|
+| Home | `/` | Establish the mission, evidence gap, scientific approach, name, and latest work. |
+| Science | `/science` | Explain the four connected scientific fields behind the work. |
+| Partnerships | `/partnerships` | Present the collaboration model, an illustrative partner treatment, and partnership principles. |
+| People | `/people` | Introduce the leadership team. |
+| Contact | `/contact` | Provide a partner-focused contact form. |
 
-| Page | URL | Job |
-|------|-----|-----|
-| Home | `/` | Locked hero + film. Then progress as **article cards** (Iso “latest” / bioresilience style). |
-| The Science | `/science` | AI in healthcare, data in healthcare, device R&D / portable diagnostics, early detection. |
-| Approach | `/approach` | Cancer facts as founding insight; handwritten founder note; two collaboration models. |
-| Partnerships | `/partnerships` | Two named efforts, each with a full collaboration write-up — Iso [partnerships](https://www.isomorphiclabs.com/partnerships) pattern. |
-| People | `/people` | Team. **Not on the landing page.** |
-| Group | `/group` | Esperer heritage, labs, sister science. **Last in the nav.** |
+# Home `/`
 
-Home does **not** include People, Group, or a platforms section.
-
----
-
-## Design direction (Lilly)
-
-- Human first. Technology in the frame, never the hero of the photograph.
-- Cream / parchment ground, deep ink, one warm accent (terracotta or wine).
-- Large display headlines; calm body sans.
-- Generous space. One idea per viewport.
-- **Progress = editorial cards**, not chips. Pattern: image, category, long title, short standfirst, date or “in the field / in research” as *article metadata*, like [Our approach to bioresilience](https://www.isomorphiclabs.com/articles/our-approach-to-bioresilience).
-- **Founder note:** look like ink on paper (or a scan of real handwriting), not a corporate quote slab.
-- Avoid neural-net backgrounds, DNA stock, device packshots, vendor-logo strips, “Our products.”
-
----
-
-## Hero video brief (home only)
-
-15–25s, loopable, captions, no VO required.
-
-1. A person in a small clinic — not a machine.
-2. Compact diagnostic workflow (unbranded).
-3. Clinician and result in minutes.
-4. Group research bench.
-5. A family walking out.
+## Hero
 
 **H1 (locked):**
 
-```
-Intelligent Healthcare
-in Cancer Ecosystem.
-Accessible Everywhere.
-```
+> Intelligent Healthcare in Cancer Ecosystem. Accessible Everywhere.
 
-**Deck:** We build the intelligence that helps cancer be found earlier, understood sooner, and faced closer to home.
+**Deck:**
 
-**Primary CTA:** The science  
-**Secondary CTA:** Partner with us → `/partnerships` or contact
+> We build the intelligence that helps cancer be found earlier, understood sooner, and faced closer to home.
 
----
+**Primary CTA:** Science → `/science`
 
-# HOME `/`
+**Secondary CTA:** Partner with us → `/partnerships`
 
-### Meta
+The hero uses a three-image editorial composition: a biomedical scientist, a patient, and a green-toned pipette/research image. The page contour animation continues behind the hero and the following facts section so both read as one visual field.
 
-- **Title:** HealthVoitho — Intelligent healthcare in the cancer ecosystem
-- **Description:** A research-oriented technology organisation in the Esperer Group. We develop intelligent systems for earlier, more accessible cancer care.
+## Cancer facts
 
-### After the hero — progress cards (not chips)
+**H2:**
 
-**Eyebrow:** From the science  
-**H2:** What we are proving in the world
+> Cancer is becoming a family fact
+>
+> and we're here to change it.
 
-Layout: 2–3 large editorial cards (image + category + headline + 2-line standfirst). Click-through can be a short article, or simply expand on `/science`. Same visual language as Iso’s featured articles — **not** status pills.
-
-**Card 1**  
-*Category:* Early detection · In the field  
-**Title:** Finding probability before the disease has a stage  
-Most cancer systems wait for what is already advanced. We have taken a compact diagnostic pathway into real rooms — a wide clinical picture in minutes, including functional measures, hospital-grade cardiac traces, and a focused set of cancer markers. The device is not the story. Time, and where the visit can happen, is.
-
-**Card 2**  
-*Category:* The ecosystem · Collaboration  
-**Title:** Saltlick — intelligence inside a full cancer pathway  
-Cancer care fails when screening, treatment, and support live in different worlds. Saltlick is how a hub-and-spoke pathway can carry detection through to care. HealthVoitho’s role is the intelligence layer — not a product page. Full collaboration note on [Partnerships](/partnerships).
-
-**Card 3**  
-*Category:* Supportive care · In research  
-**Title:** Cancer pain treated as a scientific problem  
-For many people — especially in head and neck disease — pain is the day. We are working on technology for cancer pain that can sit inside the same ecosystem as detection, not as an afterthought.
-
-No “Shortly.” No chips. No third platform block on this page.
-
----
-
-# THE SCIENCE `/science`
-
-**Nav label:** The Science
-
-**Eyebrow:** The science  
-**H1:** Intelligence built for the cancer ecosystem  
-**Lead:** We do not start from a catalogue. We start from four bodies of work that have to function together: how machines read clinical signal, how data becomes the next decision, how devices can leave the hospital, and how cancer is found while there is still time.
-
-These are **named plainly** — AI in healthcare, data in healthcare, device R&D, early detection. They are fields of inquiry, not SKUs.
-
----
-
-### AI in healthcare
-
-**H2:** AI in healthcare
-
-Machine intelligence here is not a feature list. It is how a visit that lasts minutes can still be clinically serious: reading panels, ranking risk, and putting a usable signal in front of a clinician who is not sitting in a tertiary centre.
-
-We train and apply models only where they change a cancer-ecosystem decision — probability of disease, urgency of referral, interpretation of a portable panel — and only when they can be explained to the person who must act.
-
-What we will not do on this page: name a black-box “AI product,” or invite the public to be screened by an algorithm.
-
----
-
-### Data in healthcare
-
-**H2:** Data in healthcare
-
-Cancer care fails in the gaps between visits. Data, for us, is the tissue that should connect a finding in a small clinic to the next clinician, the nutrition team, and the programme that has to follow the person.
-
-We care about **what is collected, how it is collected, and what decision it is for**. Longitudinal, privacy-disciplined, useful at the bedside. Not data for its own sake, and not a claim that we run a consumer health app as the brand.
-
----
-
-### Device R&D — portable diagnostics
-
-**H2:** Device R&D
-
-Hospital-grade signal is of little use if it can only exist in a hospital. Device research at HealthVoitho is the problem of **portability with integrity**: panels that travel, results in seconds to minutes, cost that does not exile the technology to a few cities.
-
-A pathway we have already taken into the field returns on the order of a hundred parameters — including lung function, a 12-lead hospital-grade ECG, and a set of direct cancer markers — with results from about twenty seconds to fifteen minutes. We describe that here as **what the science is for**, not as a model number in a shop.
-
-If a device is discontinued next season, the scientific question remains. That is why this site is not a product grid.
-
----
-
-### Early detection
-
-**H2:** Early detection
-
-The work is proactive: estimate the *probability* of cancer (and of the NCDs that travel with it) while people are still living their lives — including when they do not yet know anything is wrong.
-
-Early detection is not a service we sell to the public on this website. It is the scientific target that AI, data, and devices are aimed at.
-
----
-
-### On this page, also: progress cards (repeat or extend home)
-
-Same card treatment as home — so `/science` feels like a living lab notebook, not a capability brochure. Cards can deepen the three home stories or add a fourth when there is something honest to say (pain, a dataset, a field lesson).
-
----
-
-# APPROACH `/approach`
-
-**Nav label:** Approach
-
-This page carries **why we exist** and **how we work with others**. It is not a process infographic.
-
----
-
-### Insight — the facts that started the work
-
-**Eyebrow:** The situation  
-**H2:** Cancer is becoming a family fact. Care should not remain a city privilege.
-
-**Primary number (large):**  
-By 2032, cancer is projected to sit inside every Indian family.  
-*Lock citation with leadership before this is treated as a press statistic.*
-
-**Supporting numbers (still large, still human):**
+The second line uses the site gradient. The figures count up once when the section enters the viewport:
 
 - **72%** of lung cancers are found when the disease is already advanced.
 - **28%** of people with breast cancer are unaware it is there.
 - **1 in 5** cancer deaths are driven by malnutrition — not by the tumour alone.
 
-**Body:**  
-A larger hospital will not fix this. A longer queue will not fix this. HealthVoitho exists to put intelligence — detection, interpretation, supportive insight — into forms that can leave the campus: portable, affordable, and strict about evidence.
+These statements require approved citations before publication.
 
-If it cannot move, cannot be trusted, cannot be transferred — it is not finished.
+## AI + Domain Expertise
 
----
+This is a dark 40:60 split section. The left side uses a looping spheroid-invasion video; the right side contains the scientific proposition and three vertically arranged elements.
 
-### Founder note (handwritten)
+**H2:** AI + Domain Expertise
 
-**Placement:** directly under the statistics. Visual: cream paper, actual handwriting (or a faithful facsimile), signature and date. Lilly-warm, not a black quote bar.
+> We combine longitudinal oncology data, AI-driven causal modelling and deep domain expertise into solutions our partners use to validate targets, biomarkers and diagnostic pathways before committing capital downstream.
 
-**Suggested text** (for Dr. Raktim Chattopadhyay to rewrite in his own hand):
+1. **AI-Driven Causal Modelling** — We apply AI/ML and causal inference to real-world oncology data to identify disease targets and patient subtypes, and validate them before a partner commits lab or clinical resources.
+2. **Longitudinal Oncology Data** — Structured data spanning the full disease journey, so every model is grounded in how cancer progresses in a population rather than only in published literature.
+3. **Deep Domain Knowledge** — Oncology-specific clinical and scientific expertise at every step, producing an interpretable output rather than a black-box score.
 
-> When I look at those numbers, they do not feel like a market. They feel like a failure of distance — of intelligence that stays locked in a few buildings while families wait.
->
-> HealthVoitho is not here to manufacture a catalogue, and it is not here to rent teams by the hour. We are here to build the *brain* of solutions in the cancer ecosystem: to inquire, to prove in the field, and then to let the technology live with the people who will carry it further.
->
-> That is the only differentiation that matters to me. Not that we use AI, or data, or devices. That we will not put any of them into the world unless they make cancer care earlier, closer, and more humane.
+**CTA:** Explore the science behind it → `/science`
 
-— Dr. Raktim Chattopadhyay  
-Founder, Esperer Group
+## What's in a name?
 
----
+An interactive scroll sequence separates “Health” and “Voitho” and reveals a light, canvas-style illustration of one hand helping another. The copy arrives sequentially:
 
-### Collaboration models
+> HealthVoitho blends the word “Health” with the Greek word “voitho,” which means “to assist.”
 
-**Eyebrow:** How we work with you  
-**H2:** Two ways a technology enters this house
+> We enable scientists, clinicians and institutions to harness the collective wisdom and the power of technology to uncover knowledge for the future of cancer care. We do so to help people everywhere live healthier and happier.
 
-Not a services menu. Two models, equal weight, Iso-plain language.
+## Latest Work
 
-**As a partner**  
-You are a scientist, a clinician, a medtech team, or an institution with a problem in the cancer ecosystem. We inquire together, put HealthVoitho’s intelligence and the group’s oncology R&D beside your expertise, and build until the technology is honest enough to transfer. You remain a collaborator — not a vendor logo on a strip.
+This section sits immediately above the footer. It uses three compact editorial cards whose neutral image fields transition to the company gradient on hover.
 
-**We acquire, and we operate**  
-Some work should not stay as a handshake. Where a technology, a team, or a device pathway belongs inside this ecosystem, we acquire it, operate it long enough to learn, and then carry or transfer it as HealthVoitho science — not as a white-label factory job.
+1. **A new way to manage pain for cancer patients** — supportive technology within the cancer-care pathway. The image crop shows only the upper body.
+2. **Cancer care for rural India** — intelligent pathways connecting communities, screening, and clinical expertise.
+3. **Bringing screening from hospitals to homes** — compact screening experiences designed to move beyond specialist facilities.
 
-A short line under both:  
-We are interested in anyone building in this ecosystem except a consumer looking to book a test. Write to us.
+# Science `/science`
 
-**CTA:** Start a conversation → contact
+**H1:** Intelligence built for the cancer ecosystem
 
----
+“Intelligence” uses the site gradient; the remaining heading uses the standard deep blue.
 
-# PARTNERSHIPS `/partnerships`
+**Lead:**
 
-**Nav label:** Partnerships  
-**Pattern:** [Isomorphic Labs Partnerships](https://www.isomorphiclabs.com/partnerships) — ambitious opener, then **one partner at a time**: name, narrative of the collaboration, what each side brings, optional quote. **Two companies / efforts on this page.** No vendor-logo parade. No “platforms” heading.
+> We do not start from a catalogue. We start from four bodies of work that have to function together: how machines read clinical signal, how data becomes the next decision, how devices can leave the hospital, and how cancer is found while there is still time.
 
-**Eyebrow:** Partnerships  
-**H1:** Hard problems in cancer care are not solved alone  
-**Lead:** HealthVoitho’s science only matters when it sits inside a real pathway — detection, care, support. We work with organisations that already live in that pathway. Two collaborations are ready to be spoken about in public. Each has its own home; this page is the relationship, not a product tour.
+The page uses a white background, shared contour animation, and a vertical connecting line that progresses through four fields:
 
----
+1. **AI in healthcare** — clinically useful, explainable signal for cancer-ecosystem decisions.
+2. **Data in healthcare** — longitudinal, privacy-disciplined information connected to a clear clinical decision.
+3. **Device R&D** — portable diagnostic pathways that preserve clinical integrity outside tertiary hospitals.
+4. **Early detection** — estimating risk while intervention can still change the course of disease.
 
-### Partner 1 — Saltlick
+The page must continue to describe fields of inquiry rather than market individual devices or invite consumer screening.
 
-**Label:** Partner  
-**H2:** Saltlick
+# Partnerships `/partnerships`
 
-**Details of our collaboration**
+**H1:** Ambitious problems demand collaborators who've earned the room
 
-Saltlick is a cancer-ecosystem effort: a way to take people from identification through care, including where a tertiary campus is far away. HealthVoitho is not “the Saltlick brand.” We are the intelligence in the pathway — portable diagnostics, data that can follow the person, AI where it earns a clinical decision.
+“Collaborators” uses the site gradient.
 
-The collaboration is bidirectional. The field tells the lab what actually fails. The lab returns systems that can travel. For the working programme, go to Saltlick’s own site. This page will not duplicate it.
+**Lead:**
 
-**What HealthVoitho brings:** AI, data discipline, and device science that can leave the hospital.  
-**What the pathway brings:** oncology operations, reach, and the last mile of care.
+> Our mission is to close the gap between when cancer can be caught and when it’s actually caught. That’s a bigger problem than any one lab, dataset, or model can solve alone — which is why every serious step we’ve taken has been taken alongside the people closest to the science.
 
-[ Visit Saltlick → ] *(URL to confirm)*
+## Driving discovery together
 
-*Optional quote from a Saltlick / Esperer clinical lead, when approved — Iso style, name + role under the line.*
+The section addresses independent scientists, research labs, academic and clinical institutions, and other aligned partners. It explains the role of AI, longitudinal data, and oncology expertise in producing evidence that holds outside a lab and reaches beyond tertiary centres.
 
----
+## Our partners
 
-### Partner 2 — Niq
+The current implementation contains one editorial partner feature for **Meridian Cancer Research Institute**, with an illustrative logo, image, collaboration description, and attributed quotation.
 
-**Label:** Partner  
-**H2:** Niq
+**Important:** Meridian Cancer Research Institute, Dr. Amara Solanki, the collaboration, and the quotation are placeholders. They must not be published as real claims. Replace the entire entry with an approved institution, approved logo, factual collaboration description, and cleared quotation before launch.
 
-**Details of our collaboration**
+## Our partnership principles
 
-Niq is the second organisation we are building with in public. Keep this block **high level** until legal and the Niq team sign off a sentence. Until then, the honest version:
+This is an open four-column grid on a dark background, not a set of cards:
 
-Niq is a collaboration in progress in the same cancer ecosystem — a defined problem in the pathway, a team we are aligned with, and a site of its own when the work is ready to be used. We will not describe a product here that we are not yet willing to stand behind.
+- **Rigor** — validate against causal, real-world evidence before handing work downstream.
+- **Reciprocity** — combine partner data and expertise with HealthVoitho modelling and validation.
+- **Velocity** — judge collaboration against the clock faced by people with cancer.
+- **Reach** — move validated pathways beyond tertiary centres.
 
-**What HealthVoitho brings:** the same scientific stack — AI, data, devices — applied to Niq’s problem.  
-**What Niq brings:** *(one sentence, to be supplied)*
+**Closing CTA:** Partner with us → `/contact`
 
-[ Visit Niq → ] *(when live)*
+# People `/people`
 
-If Niq cannot be named yet, replace the heading with a second **named** partner that *can* be disclosed, or hold the second block rather than inventing one. This page should not have a ghost company.
+**H1:** Leadership guided by purpose
 
----
+“Leadership guided by” uses the standard deep blue and “purpose” uses the gradient.
 
-### Partnership principles (short, Iso-like)
+> Our leadership team brings together a powerful blend of expertise across technology, cancer research, and healthcare, and a passion for redefining cancer care.
 
-**Synergy** — They know the pathway. We know the intelligence. Neither is a vendor to the other.  
-**Collaboration** — Continuous, scientific, in the field as much as on paper.  
-**Transfer** — The point is that the technology can leave us and still be itself.  
-**Access** — If it cannot move beyond a few cities, it is not a partnership we will celebrate on this page.
+The page uses three compact, Valo-inspired portrait treatments on a white contour background:
 
----
+- **Raktim Chattopadhyay** — Founder, Director
+- **Mohan Krishna Pathalapati** — VP Operations
+- **Rupam Chattopadhyay** — Chief Technology Officer
 
-# PEOPLE `/people`
+# Contact `/contact`
 
-**Not on the landing page.** Own URL, own nav item.
+**H1:** If you are building in this ecosystem, we should know each other.
 
-**Eyebrow:** People  
-**H1:** The people behind the intelligence  
-**Lead:** Scientists, clinicians, and engineers who stay with the problem. Backgrounds matter more than title inflation.
+> Scientists, clinicians, medtech teams, and institutions — this form reaches us by email. We do not offer consumer screening through this site.
 
-Portrait grid — Lilly warmth, not a LinkedIn dump. Bios supplied by the team; **do not invent names.**
+The form uses the site typography, blue labels, rounded inputs, and a gradient-outline **Send** button. Fields are Name, Organisation, Role, Email, How we might work, and Message. Collaboration choices are Partner, Acquire & operate, and Other.
 
-Optional: a single line that this is who partners will work with — not a careers marketplace (careers can be a later addition).
+# Footer
 
----
+The footer uses a dark, animated theme gradient with a subtle grain texture and smooth continuous movement.
 
-# GROUP `/group` (last in nav)
+Left column:
 
-**Eyebrow:** Esperer Group  
-**H1:** Technology with oncology in its bones
+- Enlarged white HealthVoitho logo linked to the landing-page top.
+- “HealthVoitho Technologies Pvt. Ltd. is a part of Esperer Group of Companies.”
+- White Gateway of India mark.
+- Gundecha Enclave, 4BA, 4th Floor, Khairani Rd., Saki Naka, Mumbai, Maharashtra 400072.
+- Email: info@healthvoitho.com.
+- Phone: 022-27840109.
 
-HealthVoitho is one entity in a group that already lives inside cancer care:
+Right column:
 
-- **Esperer Bioresearch** — molecules, treatment, oncology science  
-- **Esperer Nutrition / ENDC** — supportive nutritional science, including dedicated cancer-nutrition research  
-- **Infrastructure** the ecosystem actually needs — so technology is not invented in a vacuum
+- Monochrome, consistently sized CE, FDA, HIPAA, and ISO 27001 marks.
+- Privacy Policy, Terms & Conditions, LinkedIn, and current-year copyright.
 
-The group maintains **dedicated cancer research laboratories in more than one country**. Questions from the field go to the bench; findings from the bench become systems that can travel.
+Certification marks are visual placeholders until the corresponding certificate or regulatory links and claims are approved. DPDPA is intentionally not displayed.
 
-Sister concerns are not clients. They are why this is not a generic health-tech shop.
+# Voice and content rules
 
-Quiet links: Esperer Bioresearch · Esperer Nutrition
+- Prefer *build, validate, prove, partner, operate,* and *transfer* over generic innovation claims.
+- Keep the focus on cancer science and the decisions it enables, not SKUs.
+- Do not describe an AI score as a replacement for clinical or domain review.
+- Do not invite patients to purchase screening or treatment through this website.
+- Do not publish partner names, logos, quotes, statistics, regulatory claims, or certification links without evidence and approval.
+- Keep headings concise, consistently sized within their page tier, and free of eyebrow labels unless a future design explicitly requires one.
 
-**Standards (can live at the foot of this page or in footer):** ISO, FDA/CE pathways only when exact and true for HealthVoitho, DPDP, HIPAA-aligned handling where the architecture requires it.
+# Pre-publication checklist
 
----
-
-# CONTACT (utility, every page footer + `/contact` if needed)
-
-**H2:** If you are building in this ecosystem, we should know each other.
-
-Scientists, clinicians, medtech teams, institutions. This is email, not a chatbot, and not consumer screening.
-
-**Fields:** Name · Organisation · Role · Email · How we might work (Partner / Acquire & operate / Other) · Message
-
----
-
-## Footer (all pages)
-
-HealthVoitho Technologies · Esperer Group  
-The Science · Approach · Partnerships · People · Group  
-Privacy · Contact  
-© [year]
-
----
-
-# Voice
-
-- Calm, specific, adult. Research institute, not a startup landing page.
-- Prefer *build, prove, partner, acquire, operate, transfer* over *empower, revolutionise, unleash*.
-- Never invite a patient to get screened with us.
-- Never list devices as products.
-- Say **Saltlick**, not Shortly.
-- Say **AI in healthcare / data in healthcare / device R&D** on The Science — those phrases are allowed there; they are not a substitute for the locked hero.
-
----
-
-# Open items
-
-1. Citations for 2032 / 72% / 28% / 1-in-5.
-2. Founder to write (or heavily edit) the handwritten note.
-3. Saltlick official name, URL, one quote, one collaboration sentence signed off.
-4. Niq: may we name it, URL, one sentence — or a different second partner.
-5. Team names, roles, photographs for `/people`.
-6. Certification exact names.
-7. Hero film vs stills.
-8. Legal review of device-parameter and FDA/CE language.
+1. Add authoritative citations and legal approval for the 72%, 28%, and 1-in-5 cancer facts.
+2. Replace the illustrative Meridian partner feature with a real, approved collaboration or remove the feature.
+3. Confirm usage rights and hosting reliability for all externally sourced images and the spheroid-invasion video.
+4. Validate the CE, FDA, HIPAA, and ISO 27001 representations and add approved certificate links.
+5. Finalise the Privacy Policy and Terms & Conditions destinations and copy.
+6. Verify production delivery, validation, spam protection, and privacy handling for the contact form.
+7. Complete accessibility, responsive, performance, and reduced-motion review before release.

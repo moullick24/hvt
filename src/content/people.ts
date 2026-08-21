@@ -2,28 +2,33 @@ export const people = {
   meta: {
     title: "People",
     description:
-      "Scientists, clinicians, and engineers behind HealthVoitho’s intelligence.",
+      "Meet the HealthVoitho leadership team bringing together technology, cancer research, and healthcare expertise.",
   },
-  eyebrow: "People",
-  title: "The people behind the intelligence",
-  lead: "Scientists, clinicians, and engineers who stay with the problem. Backgrounds matter more than title inflation.",
-  note: "This is who partners will work with — not a careers marketplace.",
-  placeholders: [
+  titlePrefix: "Leadership guided by",
+  titleAccent: "purpose",
+  lead:
+    "Our leadership team brings together a powerful blend of expertise across technology, cancer research, and healthcare, and a passion for redefining cancer care.",
+  leaders: [
     {
-      id: "1",
-      label: "Portrait forthcoming",
-      role: "Leadership & science",
+      id: "raktim-chattopadhyay",
+      name: "Raktim Chattopadhyay",
+      role: "Founder, Director",
+      image: "/media/people/raktim-chattopadhyay.png",
+      imageClassName: "people-portrait-raktim",
     },
     {
-      id: "2",
-      label: "Portrait forthcoming",
-      role: "Clinical & field",
+      id: "mohan-krishna-pathalapati",
+      name: "Mohan Krishna Pathalapati",
+      role: "VP Operations",
+      image: "/media/people/mohan-krishna-pathalapati.png",
+      imageClassName: "people-portrait-mohan",
     },
     {
-      id: "3",
-      label: "Portrait forthcoming",
-      role: "Engineering & data",
+      id: "rupam-chattopadhyay",
+      name: "Rupam Chattopadhyay",
+      role: "Chief Technology Officer",
+      image: "/media/people/rupam-chattopadhyay.png",
+      imageClassName: "people-portrait-rupam",
     },
   ],
-  footerNote: "Team names, roles, and photographs will appear here once supplied. We do not invent bios.",
 } as const;

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { Send as SendIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { contact } from "@/content/contact";
 
@@ -54,12 +55,12 @@ export function ContactForm() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="border border-line bg-bg-elevated/70 px-6 py-10"
+            className="rounded-[1.5rem] bg-[#eff5f3] px-6 py-10 md:px-8"
           >
-            <p className="font-display text-2xl text-ink">{contact.success}</p>
+            <p className="font-display text-2xl text-[#1d315f]">{contact.success}</p>
             <button
               type="button"
-              className="mt-6 text-sm text-accent hover:underline"
+              className="mt-6 text-sm font-medium text-[#397d93] hover:underline"
               onClick={() => setStatus("idle")}
             >
               Send another message
@@ -72,7 +73,7 @@ export function ContactForm() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="grid gap-5"
+            className="grid gap-6"
           >
             <Field
               label="Name"
@@ -100,9 +101,9 @@ export function ContactForm() {
             />
 
             <label className="block">
-              <span className="text-sm text-ink">How we might work</span>
+              <span className="text-sm font-medium text-[#1d315f]">How we might work</span>
               <select
-                className="mt-2 w-full border border-line bg-bg-elevated px-3 py-3 text-sm text-ink outline-none focus:border-accent"
+                className="mt-2.5 w-full rounded-[1rem] border border-[#b9cdcd] bg-white/90 px-4 py-3.5 text-sm text-[#263d43] outline-none transition focus:border-[#468397] focus:ring-4 focus:ring-[#468397]/10"
                 value={values.workMode}
                 onChange={(e) =>
                   setValues((s) => ({ ...s, workMode: e.target.value }))
@@ -117,11 +118,11 @@ export function ContactForm() {
             </label>
 
             <label className="block">
-              <span className="text-sm text-ink">Message</span>
+              <span className="text-sm font-medium text-[#1d315f]">Message</span>
               <textarea
                 required
                 rows={6}
-                className="mt-2 w-full resize-y border border-line bg-bg-elevated px-3 py-3 text-sm text-ink outline-none focus:border-accent"
+                className="mt-2.5 w-full resize-y rounded-[1rem] border border-[#b9cdcd] bg-white/90 px-4 py-3.5 text-sm text-[#263d43] outline-none transition placeholder:text-[#708185] focus:border-[#468397] focus:ring-4 focus:ring-[#468397]/10"
                 value={values.message}
                 onChange={(e) =>
                   setValues((s) => ({ ...s, message: e.target.value }))
@@ -138,9 +139,13 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="justify-self-start rounded-sm bg-ink px-5 py-3 text-sm text-bg transition hover:bg-accent disabled:opacity-60"
+              className="hero-outline-action group inline-flex items-center gap-3 justify-self-start rounded-full border-[1.5px] border-transparent px-7 py-4 text-sm font-semibold disabled:pointer-events-none disabled:opacity-60"
             >
-              {status === "loading" ? "Sending…" : "Send message"}
+              {status === "loading" ? "Sending…" : "Send"}
+              <SendIcon
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
             </button>
           </motion.form>
         )}
@@ -164,11 +169,11 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-sm text-ink">{label}</span>
+      <span className="text-sm font-medium text-[#1d315f]">{label}</span>
       <input
         type={type}
         required={required}
-        className="mt-2 w-full border border-line bg-bg-elevated px-3 py-3 text-sm text-ink outline-none focus:border-accent"
+        className="mt-2.5 w-full rounded-[1rem] border border-[#b9cdcd] bg-white/90 px-4 py-3.5 text-sm text-[#263d43] outline-none transition placeholder:text-[#708185] focus:border-[#468397] focus:ring-4 focus:ring-[#468397]/10"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Caveat, Prata, Rethink_Sans } from "next/font/google";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { site } from "@/content/site";
@@ -48,10 +49,11 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${body.variable} ${hand.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-bg text-ink">
+      <body id="top" className="flex min-h-full flex-col bg-white text-ink">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <BackToTop />
       </body>
     </html>
   );

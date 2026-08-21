@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Handshake } from "lucide-react";
+import { Handshake, Microscope } from "lucide-react";
 import { home } from "@/content/home";
 
 export function Hero() {
@@ -26,8 +26,8 @@ export function Hero() {
                 className="hero-outline-action group inline-flex items-center gap-3 rounded-full border-[1.5px] border-transparent px-6 py-3.5 text-sm font-semibold sm:text-base"
               >
                 {hero.primaryCta.label}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                <Microscope
+                  className="h-[1.1rem] w-[1.1rem] transition-transform group-hover:scale-110"
                   aria-hidden
                 />
               </Link>
